@@ -1,0 +1,60 @@
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xtml1/DTD/xtml1-transitional.dtd">
+<?xml version="1.0" encoding="UTF8"?>
+<html>
+	<head>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="css/theme.css">
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<div class="container">
+			<div class="jumbotron">		
+		<div class="dane">
+			<p class="tekst">
+				Podaj dane nadawcy:
+			</p>
+			<form action="../php/dane_nad.php" method="post">
+				Imie:</br>
+					<input type="text" name="imie" required></br>
+				Nazwisko:</br>
+					<input type="text" name="nazwisko" required></br>
+				Numer telefonu:</br>
+					<input type="text" name="nr_telefonu" required></br>
+				Adres e-mail:</br>
+					<input type="text" name="adres_mail" required></br>
+				Rozmiar paczki:</br>
+					<select name="rozm_paczki">
+						<option value="1">9x14cm</option>
+						<option value="1">15x20cm</option>
+						<option value="1">30x30cm</option>
+						<option value="1">60x50cm</option>
+					</select> </br>
+				Waga paczki:</br>
+					<input type="text" name="waga_paczki" required></br>
+				Rodzaj wysylki paczki:</br>
+					<!--<form action="dane_nad.php">-->
+						<select name="rodzaj_wys">
+							<option value="1">Normalna</option>
+							<option value="2">Priorytetowa</option>
+							<option value="3">Ekspresowa</option>
+							<option value="4">Priorytetowa ekspresowa</option>
+						</select>
+					<!--</form>-->
+				</br>
+				</br>
+				<input type="submit" value="Dalej" />
+			</form>
+		</div>		
+		</div>
+		</div>
+	</body>
+</html>

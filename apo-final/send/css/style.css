@@ -1,0 +1,51 @@
+#baner {
+	width: 750px;
+	height: 50px;
+	margin: 20px auto;
+	border: 0px dashed red;
+	padding: 20px;
+	margin: 20px;
+	margin: 20px auto;
+	text-align:center;
+	background: #29BCFF;
+}
+#glowna{
+	width: 750px;
+	height: auto;
+	margin: 20px auto;
+	border: 0px dashed red;
+	padding: 20px;
+	margin: 20px;
+	margin: 20px auto;
+	text-align:center;
+	background: #29BCFF;
+}
+#obrazek{
+	width: auto;
+	max-height: 100%;
+}
+#tekst1{
+	font-family: Verdana;
+	color: green;
+	font-size: 15px;
+}
+#tekst2{
+	font-family: Times New Roman;
+	color: white;
+	font-size: 15px;
+}
+.tekst{
+	font-family: Arial;
+}
+body{
+	background: #145E7F;
+}
+.dane{
+	width: 750px;
+	height: auto;
+	margin: 20px auto;
+	border: 0px dashed red;
+	padding: 20px;
+	background: #29BCFF;
+	text-align:center;
+}

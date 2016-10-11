@@ -1,0 +1,130 @@
+<html>
+	<head>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="css/theme.css">
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<meta charset="UTF-8">
+	</head>
+	
+	<body>
+		<div class="container">
+			<div class="jumbotron">			
+        <h1>Dane wysyłkowe</h1>
+        <div class="text">Miasto</div>
+        <input list="miasta" id="wybraneMiasto">
+          <datalist id="miasta">
+            <option value="Gdansk">
+            <option value="Krakow">
+          <option value="Lodz">
+            <option value="Poznan">
+            <option value="Warszawa">
+          </datalist> 
+          <button type="button" onclick="ulica()">Wybierz</button>
+          <br/>
+          <div id="wybierzUlice" style="display: none;">
+            <div class="text" id="wybierzUlice">Ulica</div>
+            <input list="gdanskAdresy" id="gdansk" name="ulica" style="display: none;">
+            <datalist id="gdanskAdresy">
+              <option value="Mickiewicza 20">
+            <option value="Kosciuszki 1">
+            </datalist> 
+            <input list="krakowAdresy" id="krakow" name="ulica" style="display: none;">
+            <datalist id="krakowAdresy">
+              <option value="Slowackiego 5">
+            </datalist> 
+            <input list="lodzAdresy" id="lodz" name="ulica" style="display: none;">
+            <datalist id="lodzAdresy">
+              <option value="Poznanska 11">
+            </datalist> 
+            <input list="poznanAdresy" id="poznan" name="ulica" style="display: none;">
+            <datalist id="poznanAdresy">
+              <option value="Raszkowska 20">
+            <option value="Umultowska 87">
+            </datalist> 
+            <input list="warszawaAdresy" id="warszawa" name="ulica" style="display: none;">
+            <datalist id="warszawaAdresy">
+              <option value="Wolnosci 6">
+            </datalist> 
+            <button type="button" onclick="pokazPotwierdzenie()">Wybierz</button>
+            <br/><br/>
+            <button type="button" id="potwierdzenie" style="display: none;" onclick="wyslij()">Potwierdź</button>
+          </div>
+        <form action="deliveryData.html" id="doWyslania" method="get">
+          <input type="text" name="miasto" id="miasto" hidden />
+          <input type="text" name="ulica" id="ulica" hidden />
+        </form>
+			</div>
+		</div>
+
+	</body>
+  <script>
+  /* DO STRONY ODBIERAJACEJ DANE Z TEGO "MODULU"
+  var ulica = location.href;
+  var tablica;
+  var miasto;
+  var ulica;
+  if(ulica.search('miasto') != -1)
+  {
+    tablica = ulica.split('?');
+    ulica = tablica[1];
+    tablica = ulica.split('&');
+    miasto = tablica[0];
+    miasto = miasto.split('=');
+    miasto = miasto[1];
+    miasto = miasto.replace("+"," ");
+    ulica = tablica[1];
+    ulica = ulica.split('=');
+    ulica = ulica[1];
+    ulica = ulica.replace("+"," ");
+    alert('miasto: ' + miasto + ' ulica: ' + ulica);
+  }
+  */
+
+  function ulica(){
+    var x = document.getElementById('wybraneMiasto').value;
+    var n = document.getElementById('miasta').options.length;
+    var stop = true;
+    for(i = 0; i < n; i++)
+    {
+      if(x == document.getElementById('miasta').options[i].value)
+        stop = false;
+    }
+    if(!stop)
+    {
+      x = x.toLowerCase();
+      document.getElementById(x).style.display = '';
+      pokazDalszyFormualrz();
+    }
+  }
+
+  function pokazDalszyFormualrz(){
+    document.getElementById('wybierzUlice').style.display = '';
+  }
+    
+  function pokazPotwierdzenie(){
+    document.getElementById('potwierdzenie').style.display = ''; 
+  }
+
+  function wyslij(){
+    var x;
+    var y;
+    for(i = 0; i < document.getElementsByName('ulica').length; i++)
+    {
+      y = document.getElementsByName('ulica')[i].value;
+      if(y != '')
+      {
+        x = y;
+      }
+    }
+    document.getElementById('miasto').value = document.getElementById('wybraneMiasto').value;
+    document.getElementById('ulica').value = x;
+    document.getElementById('doWyslania').submit();
+  }
+  </script>
+</html>
